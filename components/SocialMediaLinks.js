@@ -1,0 +1,38 @@
+import { ButtonGroup, IconButton } from "@chakra-ui/react";
+import { GrYoutube, GrInstagram, GrFacebook } from "react-icons/gr";
+
+const SocialMediaLinks = () => {
+  return (
+    <ButtonGroup variant="ghost" color="gray.600" spacing={8} gap={10}>
+      <IconButton
+        as="a"
+        href="/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+        icon={<GrFacebook fontSize="20px" />}
+        _hover={{ color: "brown", stroke: "brown" }}
+      />
+      <IconButton
+        as="a"
+        href="/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        icon={<GrInstagram fontSize="20px" />}
+        _hover={{ color: "brown", stroke: "brown" }}
+      />
+      <IconButton
+        as="a"
+        href="/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Youtube"
+        icon={<GrYoutube fontSize="20px" />}
+        _hover={{ color: "brown", stroke: "brown" }}
+      />
+    </ButtonGroup>
+  );
+};
+
+export default SocialMediaLinks;
