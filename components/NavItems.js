@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Button } from "@chakra-ui/react";
 
 const MenuItem = ({ children, isLast, to = '/' }) => {
     return (
@@ -15,29 +15,32 @@ const MenuItem = ({ children, isLast, to = '/' }) => {
 
 const NavItems = () => {
     return (
-        <Box>
             <Box
-            display={{ base: 'none', md: 'block' }}
-            flexBasis={{ base: '100%', md: 'auto' }}
-            
+            display={{ base: 'none', md: 'block', lg: 'block' }}
+            flexBasis={{ base: '100%', md: 'auto', lg: 'auto' }}
           >
             <Flex  
             align="center"     
             justify='center'
             direction='row'
-            pt={[4, 4, 0, 0]}
+            pt={[4, 4, 0, 3]}
             >       
 <MenuItem to="/">
+  <Button variant="ghost">
     Shop
+    </Button>
   </MenuItem>
   <MenuItem to="/">
+  <Button variant="ghost">
     About
+    </Button>
   </MenuItem>
   <MenuItem to="/">
-    Account
+  <Button variant="ghost">
+    Contact
+    </Button>
   </MenuItem>
 </Flex>
-</Box>
 </Box>
     )
 }

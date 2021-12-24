@@ -5,6 +5,7 @@ import HamDrawer from "./HamDrawer";
 import NavItems from "./NavItems";
 import ShoppingCart from "./ShoppingCart";
 import SearchBar from "./Searchbar";
+import Account from "./Account";
 
 const NavBarContainer = ({ children, ...props }) => {
   const StickNav = styled(Flex)`
@@ -15,43 +16,42 @@ const NavBarContainer = ({ children, ...props }) => {
     transition: height 0.5s, line-height 0.5s;
   `;
   return (
-    <Box>
+    <Box bgGradient="url(/images/4.jpg)" backgroundRepeat="no-repeat" backgroundSize="cover" backgroundPosition="center" h={['300','500','850']}>
       <StickNav
         flexDirection="row"
         justifyContent="space-between"
         alignItems="flex-end"
         as="nav"
-        px={[3, 4, 10]}
-        py={[4, 8]}
+        px={[3, 0, 10]}
+        py={[4, 6, 8]}
         mb={[0, 0, 8]}
         ms="auto"
       >
         <Stack 
         direction='row' 
-        spacing={['100px','600px']} 
+        spacing={['20px','130px', '170px', '550px']} 
+        gap={['4','0','4']}
         textAlign='center'
         >
+        <Logo display={{ base: 'none', md: 'block', lg: 'block' }} /> 
         <Box>
-          <HamDrawer />   
+          <HamDrawer />  
           <NavItems />
         </Box>
-        <Box>
-        <Center flex="1">
-          <Logo /> 
-          </Center>
-          </Box>
-          <ButtonGroup variant="ghost" color="gray.600" spacing={2} gap={1}>
+        <Logo display={{ base: 'block', md: 'none', lg: 'none' }} /> 
+          <Flex 
+            top="1rem"
+            right="1rem"
+            align="center"
+          >
+          <ButtonGroup variant="ghost" color="gray.600" spacing={['-5','4','2']} gap={['0','2','1']} >
             <SearchBar />
+            <Account  />
             <ShoppingCart />
             </ButtonGroup>
+            </Flex>
           </Stack>
       </StickNav>
-            <Image 
-              src="/images/1.jpg"
-              height="100%"
-              width="100%"
-              alt="Tea" 
-            />
       <Flex
               as="nav"
               align="center"

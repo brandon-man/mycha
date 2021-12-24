@@ -1,6 +1,11 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import { Global, css } from "@emotion/react";
 
+import customTheme from "../styles/theme";
+
+import "@fontsource/raleway";
+import "@fontsource/asap";
+
 const GlobalStyle = ({ children }) => {
   return (
     <>
@@ -32,7 +37,7 @@ const GlobalStyle = ({ children }) => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
+    <ChakraProvider resetCSS theme={customTheme}>
       <GlobalStyle>
       <Component {...pageProps} />
       </GlobalStyle>

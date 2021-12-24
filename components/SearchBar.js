@@ -11,7 +11,7 @@ import {
     InputGroup,
     InputLeftElement
 } from '@chakra-ui/react'
-import { AiOutlineSearch } from 'react-icons/ai'
+import { IoSearchSharp } from 'react-icons/io'
 import { useRef } from 'react';
 
 function SearchBar() {
@@ -23,7 +23,7 @@ function SearchBar() {
         as={IconButton} 
         ref={btnRef} 
         onClick={onOpen} 
-        icon={<AiOutlineSearch fontSize={25} />} 
+        icon={<IoSearchSharp fontSize={25} />} 
         colorScheme="black" 
         variant="ghost"
          />
@@ -38,7 +38,7 @@ function SearchBar() {
             <DrawerCloseButton />
             <DrawerBody>
                 <InputGroup>
-                <InputLeftElement pointerEvents='none' children={<AiOutlineSearch/>} />
+                <InputLeftElement pointerEvents='none' children={<IoSearchSharp />} />
             <Input placeholder='Search...' />
             </InputGroup>
             </DrawerBody>

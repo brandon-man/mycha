@@ -23,7 +23,7 @@ const menuItems = [
     third: "Environment",
   },
   {
-    main: "Account"
+    main: "Contact"
   }
 ];
 

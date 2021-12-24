@@ -30,6 +30,7 @@ import SocialMediaLinks from './SocialMediaLinks';
         icon={<HamburgerIcon />} 
         colorScheme="black" 
         variant="ghost"
+        aria-label="Open Menu"
          />
         <Drawer
           isOpen={isOpen}
