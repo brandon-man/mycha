@@ -11,7 +11,7 @@ import {
     InputGroup,
     InputLeftElement
 } from '@chakra-ui/react'
-import { IoSearchSharp } from 'react-icons/io'
+import { MdSearch } from 'react-icons/md'
 import { useRef } from 'react';
 
 function SearchBar() {
@@ -23,7 +23,7 @@ function SearchBar() {
         as={IconButton} 
         ref={btnRef} 
         onClick={onOpen} 
-        icon={<IoSearchSharp fontSize={25} />} 
+        icon={<MdSearch fontSize={25} />} 
         colorScheme="black" 
         variant="ghost"
          />
@@ -38,7 +38,7 @@ function SearchBar() {
             <DrawerCloseButton />
             <DrawerBody>
                 <InputGroup>
-                <InputLeftElement pointerEvents='none' children={<IoSearchSharp />} />
+                <InputLeftElement pointerEvents='none' children={<MdSearch />} />
             <Input placeholder='Search...' />
             </InputGroup>
             </DrawerBody>

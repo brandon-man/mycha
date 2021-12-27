@@ -1,10 +1,10 @@
-import { Flex, Box, Stack, Center, ButtonGroup, Image } from "@chakra-ui/react";
+import { Flex, Box, Stack, ButtonGroup } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import Logo from './Logo'
 import HamDrawer from "./HamDrawer";
 import NavItems from "./NavItems";
 import ShoppingCart from "./ShoppingCart";
-import SearchBar from "./Searchbar";
+import SearchBar from "./SearchBar";
 import Account from "./Account";
 
 const NavBarContainer = ({ children, ...props }) => {
@@ -22,8 +22,8 @@ const NavBarContainer = ({ children, ...props }) => {
         justifyContent="space-between"
         alignItems="flex-end"
         as="nav"
-        px={[3, 0, 10]}
-        py={[4, 6, 8]}
+        px={[3, 0, 14]}
+        py={[4, 6, 4]}
         mb={[0, 0, 8]}
         ms="auto"
       >
