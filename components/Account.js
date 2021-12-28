@@ -6,7 +6,7 @@ import { Button, IconButton } from '@chakra-ui/react'
 function Account() {
     return (
         <NextLink href="/" passHref>
-            <Button as={IconButton}  icon={<RiAccountCircleLine fontSize={25} />} />
+            <Button as={IconButton}  icon={<RiAccountCircleLine fontSize={25} color="black" />} />
         </NextLink>
     )
 }

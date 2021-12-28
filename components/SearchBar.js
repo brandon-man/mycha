@@ -23,7 +23,7 @@ function SearchBar() {
         as={IconButton} 
         ref={btnRef} 
         onClick={onOpen} 
-        icon={<MdSearch fontSize={25} />} 
+        icon={<MdSearch fontSize={25} color="black" />} 
         colorScheme="black" 
         variant="ghost"
          />

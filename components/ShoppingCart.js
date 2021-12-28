@@ -21,7 +21,7 @@ function ShoppingCart() {
         as={IconButton} 
         ref={btnRef} 
         onClick={onOpen} 
-        icon={<CgShoppingCart fontSize={25} />} 
+        icon={<CgShoppingCart fontSize={25} color="black" />} 
         colorScheme="black" 
         variant="ghost"
          />

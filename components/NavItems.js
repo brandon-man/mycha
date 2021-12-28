@@ -23,6 +23,7 @@ const NavItems = () => {
             align="center"     
             justify='center'
             direction='row'
+            px={3}
             pt={[4, 4, 0, 3]}
             >       
 <MenuItem to="/">

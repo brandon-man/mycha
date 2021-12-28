@@ -1,4 +1,9 @@
-import { Flex, Box, Stack, ButtonGroup } from "@chakra-ui/react";
+import { 
+  Flex, 
+  Box, 
+  Stack, 
+  ButtonGroup,
+ } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import Logo from './Logo'
 import HamDrawer from "./HamDrawer";
@@ -6,8 +11,24 @@ import NavItems from "./NavItems";
 import ShoppingCart from "./ShoppingCart";
 import SearchBar from "./SearchBar";
 import Account from "./Account";
+import { useEffect, useState } from "react";
 
 const NavBarContainer = ({ children, ...props }) => {
+
+  const [navBackground, setNavBackground] = useState(false)
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavBackground(true)
+    } else {
+      setNavBackground(false)
+    }
+  }
+
+  // Only fires when the code is running on the browser and avoids errors when doing tests or static site generation with next.js
+  useEffect(() => {
+    window.addEventListener('scroll', changeBackground)
+  });
+    
   const StickNav = styled(Flex)`
     position: sticky;
     z-index: 10;
@@ -18,11 +39,12 @@ const NavBarContainer = ({ children, ...props }) => {
   return (
     <Box bgGradient="url(/images/4.jpg)" backgroundRepeat="no-repeat" backgroundSize="cover" backgroundPosition="center" h={['300','500','850']}>
       <StickNav
+        backgroundColor={navBackground ? 'white' : 'transparent'}
         flexDirection="row"
         justifyContent="space-between"
         alignItems="flex-end"
         as="nav"
-        px={[3, 0, 14]}
+        px={[3, 0, 10]}
         py={[4, 6, 4]}
         mb={[0, 0, 8]}
         ms="auto"
