@@ -41,6 +41,11 @@ const NavItems = () => {
     Contact
     </Button>
   </MenuItem>
+  <MenuItem to="/">
+  <Button variant="ghost">
+    Materials
+    </Button>
+    </MenuItem>
 </Flex>
 </Box>
     )

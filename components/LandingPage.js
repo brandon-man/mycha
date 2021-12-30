@@ -9,7 +9,7 @@ import {
 function LandingPage() {
     return (
         <Box 
-            px={[20, 40, 530]}
+            px={[20, 40, 0, 530]}
             py={[4, 6, 55]}
             mb={[0, 0, 8]}
         >

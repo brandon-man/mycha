@@ -3,6 +3,7 @@ import {
   Box, 
   Stack, 
   ButtonGroup,
+  Grid
  } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import Logo from './Logo'
@@ -51,27 +52,25 @@ const NavBarContainer = ({ children, ...props }) => {
       >
         <Stack 
         direction='row' 
-        spacing={['20px','130px', '170px', '550px']} 
+        spacing={['0','0','170px','550px']} 
         gap={['4','0','4']}
         textAlign='center'
         >
         <Logo display={{ base: 'none', md: 'block', lg: 'block' }} /> 
-        <Box>
+        <Grid templateColumns={['repeat(3, 1fr)','repeat(3, 1fr)','repeat(2, 1fr)']} gap={['0','20','0','80']}>
+          <Flex align="center" justify="space-between">
           <HamDrawer />  
           <NavItems />
-        </Box>
-        <Logo display={{ base: 'block', md: 'none', lg: 'none' }} /> 
-          <Flex 
-            top="1rem"
-            right="1rem"
-            align="center"
-          >
+          </Flex>
+          <Logo display={{ base: 'block', md: 'none', lg: 'none' }} /> 
+          <Flex align="center" justify="space-between">
           <ButtonGroup variant="ghost" color="gray.600" spacing={['-5','4','2']} gap={['0','2','1']} >
             <SearchBar />
             <Account  />
             <ShoppingCart />
             </ButtonGroup>
             </Flex>
+        </Grid>
           </Stack>
       </StickNav>
       <Flex

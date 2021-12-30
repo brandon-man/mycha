@@ -24,6 +24,9 @@ const menuItems = [
   },
   {
     main: "Contact"
+  },
+  {
+    main: "Materials"
   }
 ];
 
