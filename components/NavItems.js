@@ -1,19 +1,8 @@
-import NextLink from "next/link";
-import { Box, Flex, Text, Button } from "@chakra-ui/react";
-
-const MenuItem = ({ children, isLast, to = '/' }) => {
-    return (
-      <Text
-        mb={{ base: isLast ? 0 : 8, sm: 0 }}
-        mr={{ base: 0, sm: isLast ? 0 : 8 }}
-        display="block"
-      >
-        <NextLink href={to} passHref>{children}</NextLink>
-      </Text>
-    );
-  };
+import { Box, Flex, useDisclosure, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
 const NavItems = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
     return (
             <Box
             display={{ base: 'none', md: 'block', lg: 'block' }}
@@ -25,27 +14,65 @@ const NavItems = () => {
             direction='row'
             px={3}
             pt={[4, 4, 0, 3]}
-            >       
-<MenuItem to="/">
-  <Button variant="ghost">
-    Shop
-    </Button>
-  </MenuItem>
-  <MenuItem to="/">
-  <Button variant="ghost">
-    About
-    </Button>
-  </MenuItem>
-  <MenuItem to="/">
-  <Button variant="ghost">
-    Contact
-    </Button>
-  </MenuItem>
-  <MenuItem to="/">
-  <Button variant="ghost">
-    Materials
-    </Button>
-    </MenuItem>
+            gap={18}
+            > 
+            <Menu isOpen={isOpen}>  
+  <MenuButton 
+    variant="ghost"
+    onMouseEnter={onOpen}
+    onMouseLeave={onClose}
+  >
+    Shop {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+    </MenuButton>
+    <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+                <MenuItem>Sencha</MenuItem>
+                <MenuItem>Menu Item 2</MenuItem>
+                <MenuItem>Menu Item 3</MenuItem>
+            </MenuList>
+            
+    </Menu>   
+    <Menu isOpen={isOpen}>  
+    <MenuButton 
+    variant="ghost"
+    onMouseEnter={onOpen}
+    onMouseLeave={onClose}
+  >
+    About {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+    </MenuButton>
+    <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+                <MenuItem>Menu Item 1</MenuItem>
+                <MenuItem>Menu Item 2</MenuItem>
+                <MenuItem>Menu Item 3</MenuItem>
+            </MenuList> 
+            </Menu>   
+            <Menu isOpen={isOpen}>  
+    <MenuButton 
+    variant="ghost"
+    onMouseEnter={onOpen}
+    onMouseLeave={onClose}
+  >
+    Contact {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+    </MenuButton>
+    <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+                <MenuItem>Menu Item 1</MenuItem>
+                <MenuItem>Menu Item 2</MenuItem>
+                <MenuItem>Menu Item 3</MenuItem>
+            </MenuList> 
+            </Menu>   
+            <Menu isOpen={isOpen}>  
+    <MenuButton 
+    variant="ghost"
+    onMouseEnter={onOpen}
+    onMouseLeave={onClose}
+  >
+    Materials {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+    </MenuButton>
+    <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+                <MenuItem>Menu Item 1</MenuItem>
+                <MenuItem>Menu Item 2</MenuItem>
+                <MenuItem>Menu Item 3</MenuItem>
+            </MenuList> 
+            </Menu>   
 </Flex>
 </Box>
     )

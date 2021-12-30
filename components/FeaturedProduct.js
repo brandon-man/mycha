@@ -38,18 +38,17 @@ function FeaturedProducts() {
         justifyContent="center"
         alignItems="flex-start"
         m="0 auto auto auto"
-        maxWidth="700px"
-        h={["200", "600", "900"]}
+        h={[700, 750, 1050, 1250]}
       >
         <Flex
           flexDirection="column"
           justify="flex-start"
           align="center"
-          maxWidth="700px"
         >
-            <Heading color="black" p={['4','4','8']} >Featured Products</Heading>
-            {products.map((item, index) => (
-              <Grid templateColumns='repeat(8, 1fr)' gap={['3','3','8']} key={index}>
+            <Heading color="black" p={[4, 4, 8]}>Featured Products</Heading>
+              <Grid templateColumns={['repeat(2, 1fr)','repeat(4, 1fr)']}gap={[2, 3, 8]}>
+              {products.map((item, index) => (
+                <Stack key={index}>
               <Image objectFit="cover" src={item.image} />
                 <Heading  
                   fontSize={{ base: "xl", md: "2xl" }}
@@ -60,10 +59,9 @@ function FeaturedProducts() {
                   color="black">
                     {item.name}
                   </Heading>
-                <Text color="black">{item.price}</Text>
+                <Text textAlign="center" color="black">{item.price}</Text>
+                </Stack>))}
               </Grid>
-            ))}
-           
            </Flex>
            </Stack>
         

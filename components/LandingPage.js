@@ -9,19 +9,19 @@ import {
 function LandingPage() {
     return (
         <Box 
-            px={[20, 40, 0, 530]}
+            px={[20, 40, 20, 530]}
             py={[4, 6, 55]}
             mb={[0, 0, 8]}
         >
             <Stack
-            px={[0, 40, 80]}
+                px={[0, 40, 80, 80]}
                 direction='column' 
-                spacing={['10px','20px', '30px']} 
+                spacing={[5, 5, 30]} 
                 textAlign='center'
             >
-            <Heading color="black">my cha</Heading>
-        <Text color="black">The best green tea</Text>
-        <Button color="black" bg="teal">Shop Now</Button>
+            <Heading fontSize={['lg', 'xl', '4xl']} color="black">my cha</Heading>
+            <Text fontSize={['sm', 'md', 'lg']} color="black">The best green tea</Text>
+            <Button fontSize={['sm', 'md', 'lg']} color="black" bgGradient='linear(to-r, rgb(208, 240, 192), rgb(253, 248, 220), rgb(167, 219, 66))'>Shop Now</Button>
             </Stack>
         </Box>
     )
