@@ -12,7 +12,8 @@ import {
   } from '@chakra-ui/react'
   import { useRef } from 'react';
 
-function ShoppingCart() {
+function ShoppingCart(props) {
+  const { onAdd, cartItems } = props
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
     return (
@@ -26,6 +27,7 @@ function ShoppingCart() {
         variant="ghost"
          />
         <Drawer
+        onAdd={onAdd} cartItems={cartItems}
           isOpen={isOpen}
           placement='right'
           onClose={onClose}
@@ -35,7 +37,7 @@ function ShoppingCart() {
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader>Cart</DrawerHeader>
-            <DrawerBody>
+            <DrawerBody >
               Your cart is empty
             </DrawerBody>
           </DrawerContent>

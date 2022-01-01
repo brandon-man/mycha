@@ -6,12 +6,12 @@ import {
   Grid
  } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import Logo from './Logo'
-import HamDrawer from "./HamDrawer";
+import Logo from '../Logo'
+import HamDrawer from "../HamDrawer";
 import NavItems from "./NavItems";
-import ShoppingCart from "./ShoppingCart";
-import SearchBar from "./SearchBar";
-import Account from "./Account";
+import ShoppingCart from "../ShoppingCart";
+import SearchBar from "../SearchBar";
+import Account from "../Account";
 import { useEffect, useState } from "react";
 
 const NavBarContainer = ({ children, ...props }) => {
@@ -52,8 +52,8 @@ const NavBarContainer = ({ children, ...props }) => {
       >
         <Stack 
         direction='row' 
-        spacing={['0','0','170px','550px']} 
-        gap={['4','0','4']}
+        spacing={['0','0','200px','550px']} 
+        gap={['4','0','0','4']}
         textAlign='center'
         >
         <Logo display={{ base: 'none', md: 'block', lg: 'block' }} /> 
