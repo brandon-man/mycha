@@ -27,7 +27,8 @@ function ShoppingCart(props) {
         variant="ghost"
          />
         <Drawer
-        onAdd={onAdd} cartItems={cartItems}
+          onAdd={onAdd} 
+          cartItems={cartItems}
           isOpen={isOpen}
           placement='right'
           onClose={onClose}
@@ -37,7 +38,7 @@ function ShoppingCart(props) {
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader>Cart</DrawerHeader>
-            <DrawerBody >
+            <DrawerBody>
               Your cart is empty
             </DrawerBody>
           </DrawerContent>

@@ -1,9 +1,9 @@
 import { ButtonGroup, IconButton } from "@chakra-ui/react";
 import { GrYoutube, GrInstagram, GrFacebook } from "react-icons/gr";
 
-const SocialMediaLinks = () => {
+const SocialMediaLinks = (props) => {
   return (
-    <ButtonGroup variant="ghost" color="gray.600" spacing={['8','0']} gap={10}>
+    <ButtonGroup variant="ghost" color="gray.600" spacing={['8','0']} gap={10} {...props}>
       <IconButton
         as="a"
         href="/"

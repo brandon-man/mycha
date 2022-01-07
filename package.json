@@ -1,5 +1,5 @@
 {
-  "name": "ohmycha-site",
+  "name": "mycha",
   "private": true,
   "scripts": {
     "dev": "next dev",

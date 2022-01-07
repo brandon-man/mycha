@@ -9,10 +9,11 @@ import styled from "@emotion/styled";
 import Logo from '../Logo'
 import HamDrawer from "../HamDrawer";
 import NavItems from "./NavItems";
-import ShoppingCart from "../ShoppingCart";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import SearchBar from "../SearchBar";
 import Account from "../Account";
 import { useEffect, useState } from "react";
+
 
 const NavBarContainer = ({ children, ...props }) => {
 
