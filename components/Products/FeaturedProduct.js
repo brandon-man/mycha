@@ -9,10 +9,9 @@ import {
 import data from './_data'
 import PriceTag from "./PriceTag";
 
-function FeaturedProducts(props) {
+const FeaturedProducts = (props) => {
   const { salePrice } = props
   const { products } = data;
-
     return (
         <Stack
         as="main"
@@ -36,8 +35,9 @@ function FeaturedProducts(props) {
                   w="full"
                   mb={2}
                   p={2}
-                  color="black">
-                    {product.name}
+                  color="black"
+                  >
+                  {product.name}
                   </Heading>
                   <PriceTag price={product.price} salePrice={salePrice} currency="USD" />
                 <Button colorScheme="green" isFullWidth>

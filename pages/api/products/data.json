@@ -4,14 +4,14 @@
         "name": "Sencha",
         "category": "sencha",
         "price": 20,
-        "image": "/images/sencha.jpg",
+        "image": "/images/sencha.jpg"
     },
     {
         "id": "2",
         "name": "Hojicha",
         "category": "hojicha",
         "price": 25,
-        "image": "/images/hoji.jpg",
+        "image": "/images/hoji.jpg"
     },
     {
         "id": "3",
@@ -20,13 +20,13 @@
         "price": 38,
         "salePrice": 32.99,
         "flag": "on-sale",
-        "image": "/images/matcha.jpg",
+        "image": "/images/matcha.jpg"
     },
     {
         "id": "4",
         "name": "Genmaicha",
         "category": "genmaicha",
         "price": 23,
-        "image": "/images/genmai.jpg",
+        "image": "/images/genmai.jpg"
     }
  ]
