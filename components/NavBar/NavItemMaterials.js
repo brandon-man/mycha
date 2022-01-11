@@ -1,25 +1,26 @@
-import { useDisclosure, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
-
+import {
+  useDisclosure,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
+import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 
 const Material = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    return (
-        <Menu isOpen={isOpen}>  
-                        <MenuButton 
-                          variant="ghost"
-                          onMouseEnter={onOpen}
-                          onMouseLeave={onClose}
-                        >
-                          Materials {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                          </MenuButton>
-                          <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-                                      <MenuItem>1</MenuItem>
-                                      <MenuItem>2</MenuItem>
-                                      <MenuItem>3</MenuItem>
-                                  </MenuList>            
-                          </Menu>
-    )
-}
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <Menu isOpen={isOpen}>
+      <MenuButton variant="ghost" onMouseEnter={onOpen} onMouseLeave={onClose}>
+        Materials {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+      </MenuButton>
+      <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+        <MenuItem>1</MenuItem>
+        <MenuItem>2</MenuItem>
+        <MenuItem>3</MenuItem>
+      </MenuList>
+    </Menu>
+  );
+};
 
 export default Material;

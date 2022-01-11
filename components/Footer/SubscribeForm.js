@@ -1,6 +1,13 @@
-import { Button, chakra, Input, Stack, Text, useColorModeValue } from '@chakra-ui/react'
-import * as React from 'react'
-import FooterHeading from './FooterHeading'
+import {
+  Button,
+  chakra,
+  Input,
+  Stack,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import * as React from "react";
+import FooterHeading from "./FooterHeading";
 
 export const SubscribeForm = (props) => {
   return (
@@ -11,20 +18,20 @@ export const SubscribeForm = (props) => {
         <Stack
           spacing="4"
           direction={{
-            base: 'column',
-            md: 'row',
+            base: "column",
+            md: "row",
           }}
         >
           <Input
             color="black"
-            bg={useColorModeValue('white', 'inherit')}
+            bg={useColorModeValue("white", "inherit")}
             placeholder="Enter your email"
             type="email"
             required
-            focusBorderColor={useColorModeValue('green.500', 'green.300')}
+            focusBorderColor={useColorModeValue("green.500", "green.300")}
             _placeholder={{
               opacity: 1,
-              color: useColorModeValue('gray.500', 'whiteAlpha.700'),
+              color: useColorModeValue("gray.500", "whiteAlpha.700"),
             }}
           />
           <Button
@@ -32,8 +39,8 @@ export const SubscribeForm = (props) => {
             colorScheme="green"
             flexShrink={0}
             width={{
-              base: 'full',
-              md: 'auto',
+              base: "full",
+              md: "auto",
             }}
           >
             Subscribe
@@ -41,5 +48,5 @@ export const SubscribeForm = (props) => {
         </Stack>
       </Stack>
     </chakra.form>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import React from "react"
-import { Box, Heading, Text } from "@chakra-ui/react"
+import React from "react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 function Logo(props) {
   return (
@@ -9,7 +9,7 @@ function Logo(props) {
       </Heading>
       <Text fontSize={["xs", "md", "lg"]}>マイ茶</Text>
     </Box>
-  )
+  );
 }
 
 export default Logo;

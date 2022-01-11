@@ -1,8 +1,8 @@
-import { Box, Link, SimpleGrid, Stack } from '@chakra-ui/react'
-import * as React from 'react'
-import FooterHeading  from './FooterHeading'
+import { Box, Link, SimpleGrid, Stack } from "@chakra-ui/react";
+import * as React from "react";
+import FooterHeading from "./FooterHeading";
 
- const LinkGrid = (props) => (
+const LinkGrid = (props) => (
   <SimpleGrid columns={2} {...props}>
     <Box minW="130px">
       <FooterHeading mb="4">Product</FooterHeading>
@@ -21,6 +21,6 @@ import FooterHeading  from './FooterHeading'
       </Stack>
     </Box>
   </SimpleGrid>
-)
+);
 
-export default LinkGrid
+export default LinkGrid;

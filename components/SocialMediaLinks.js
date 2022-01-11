@@ -3,7 +3,13 @@ import { GrYoutube, GrInstagram, GrFacebook } from "react-icons/gr";
 
 const SocialMediaLinks = (props) => {
   return (
-    <ButtonGroup variant="ghost" color="gray.600" spacing={['8','0']} gap={10} {...props}>
+    <ButtonGroup
+      variant="ghost"
+      color="gray.600"
+      spacing={["8", "0"]}
+      gap={10}
+      {...props}
+    >
       <IconButton
         as="a"
         href="/"

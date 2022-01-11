@@ -1,5 +1,7 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { Provider } from "react-redux";
+import { ChakraProvider } from "@chakra-ui/react";
 import { Global, css } from "@emotion/react";
+import store from "../redux/store"; //Importing redux store
 
 import customTheme from "../styles/theme";
 
@@ -12,11 +14,11 @@ const GlobalStyle = ({ children }) => {
       <Global
         styles={css`
           ::selection {
-            background-color: brown;
+            background-color: green;
             color: #fefefe;
           }
           ::-moz-selection {
-            background: brown;
+            background: green;
             color: #fefefe;
           }
           html {
@@ -38,11 +40,13 @@ const GlobalStyle = ({ children }) => {
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider resetCSS theme={customTheme}>
-      <GlobalStyle>
-      <Component {...pageProps} />
-      </GlobalStyle>
+      <Provider store={store}>
+        <GlobalStyle>
+          <Component {...pageProps} />
+        </GlobalStyle>
+      </Provider>
     </ChakraProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
