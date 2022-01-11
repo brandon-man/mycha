@@ -14,6 +14,7 @@ import {
   Box,
   Heading,
   ButtonGroup,
+  DrawerFooter,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon, DeleteIcon } from '@chakra-ui/icons';
 import { useRef } from "react";
@@ -92,11 +93,20 @@ const ShoppingCart = () => {
                     </ButtonGroup>
                     <Text>${item.quantity * item.price}</Text>
                   </Box>
-                ))}
-                <Heading>Total: ${getTotalPrice()}</Heading>
+                ))}            
               </>
             )}
           </DrawerBody>
+          <DrawerFooter>
+          <Heading>Total: ${getTotalPrice()}</Heading>
+            <Button 
+            fontSize={["sm", "md", "lg"]}
+            color="black"
+            bgGradient="linear(to-r, rgb(208, 240, 192), rgb(253, 248, 220), rgb(167, 219, 66))"
+            >
+            Checkout
+            </Button>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

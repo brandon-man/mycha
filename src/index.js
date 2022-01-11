@@ -1,8 +1,10 @@
 const express = require('express');
+require("./config/mongoose.js")(app);
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
+
 
 app.use(morgan('dev'));
 
@@ -16,7 +18,8 @@ app.get('/', (req, res) => {
     });
 });
 
-const port = process.eventNames.port || 4000;
+const port = process.env.PORT || 4000;
+
 app.listen(port, () => {
-    console.log(`Application is Running on ${port}`);
+    console.log(`Application is running on ${port}`);
 });
