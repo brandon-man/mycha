@@ -8,7 +8,6 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Button,
-  Icon,
   IconButton,
   Image,
   Text,
@@ -41,15 +40,6 @@ const ShoppingCart = () => {
     );
   };
 
-  const CircleIcon = (props) => (
-    <Icon viewBox='0 0 200 200' {...props}>
-      <path
-        fill='red'
-        d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
-      />
-      5
-    </Icon>
-  )
   return (
     <>
       <Button
@@ -60,7 +50,6 @@ const ShoppingCart = () => {
         colorScheme="black"
         variant="ghost"
       />
-      <CircleIcon boxSize={['4','6','6']} />
       <Drawer
         isOpen={isOpen}
         placement="right"
@@ -101,10 +90,10 @@ const ShoppingCart = () => {
                       icon={<DeleteIcon />} 
                       />
                     </ButtonGroup>
-                    <Text>$ {item.quantity * item.price}</Text>
+                    <Text>${item.quantity * item.price}</Text>
                   </Box>
                 ))}
-                <Heading>Grand Total: $ {getTotalPrice()}</Heading>
+                <Heading>Total: ${getTotalPrice()}</Heading>
               </>
             )}
           </DrawerBody>
