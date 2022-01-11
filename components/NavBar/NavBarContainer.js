@@ -7,14 +7,8 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import SearchBar from "../SearchBar";
 import Account from "../Account";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 const NavBarContainer = ({ children }) => {
-  const cart = useSelector((state) => state.cart);
-  const getItemsCount = () => {
-    return cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
-  };
-
   const [navBackground, setNavBackground] = useState(false);
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -84,7 +78,7 @@ const NavBarContainer = ({ children }) => {
               >
                 <SearchBar />
                 <Account />
-                <ShoppingCart>{getItemsCount()}</ShoppingCart>
+                <ShoppingCart />
               </ButtonGroup>
             </Flex>
           </Grid>
