@@ -1,13 +1,34 @@
 import { Heading, Stack, Flex, Image, Grid, Button } from "@chakra-ui/react";
-import data from "./_data";
 import PriceTag from "./PriceTag";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cart.slice";
+import { addToCart } from "../../redux/reducers/cart.slice";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const FeaturedProducts = (props) => {
-  const { salePrice } = props;
-  const { products } = data;
+const FeaturedProducts = () => {
+  
   const dispatch = useDispatch();
+
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios("http://localhost:5000/api/products")
+    .then(response => {
+      setData(response.data)
+    })
+    .catch(error => {
+      console.error("Error fetching data", error);
+      setError(error);
+    })
+    .finally(() => {
+      setLoading(false);
+    })
+  }, [])
+
+  if (loading) return "Loading...";
+  if (error) return "Error...";
 
   return (
     <Stack
@@ -25,7 +46,7 @@ const FeaturedProducts = (props) => {
           templateColumns={["repeat(2, 1fr)", "repeat(4, 1fr)"]}
           gap={[2, 3, 8]}
         >
-          {products.map((product) => (
+          {data.map((product) => (
             <Stack key={product.id} product={product}>
               <Image objectFit="cover" src={product.image} />
               <Heading
@@ -39,7 +60,6 @@ const FeaturedProducts = (props) => {
               </Heading>
               <PriceTag
                 price={product.price}
-                salePrice={salePrice}
                 currency="USD"
               />
               <Button

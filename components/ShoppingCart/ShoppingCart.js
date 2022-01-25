@@ -23,7 +23,7 @@ import {
   incrementQuantity,
   decrementQuantity,
   removeFromCart,
-} from '../../redux/cart.slice';
+} from '../../redux/reducers/cart.slice';
 import PriceTag from "../Products/PriceTag";
 
 const ShoppingCart = () => {
