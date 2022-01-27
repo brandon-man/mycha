@@ -4,10 +4,13 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducers/cart.slice";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useGetAllProductsQuery } from "../../redux/api/products.api";
 
 const FeaturedProducts = () => {
   
   const dispatch = useDispatch();
+
+  // const { data, error, isLoading } = useGetAllProductsQuery()
 
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
