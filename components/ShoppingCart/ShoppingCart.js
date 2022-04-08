@@ -16,14 +16,14 @@ import {
   ButtonGroup,
   DrawerFooter,
 } from "@chakra-ui/react";
-import { AddIcon, MinusIcon, DeleteIcon } from '@chakra-ui/icons';
+import { AddIcon, MinusIcon, DeleteIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   incrementQuantity,
   decrementQuantity,
   removeFromCart,
-} from '../../redux/reducers/cart.slice';
+} from "../../redux/reducers/cart.slice";
 import PriceTag from "../Products/PriceTag";
 
 const ShoppingCart = () => {
@@ -31,6 +31,7 @@ const ShoppingCart = () => {
   const btnRef = useRef();
   // Extracting cart state from redux store
   const cart = useSelector((state) => state.cart);
+  console.log(cart);
   // Reference to the dispatch function from redux store
   const dispatch = useDispatch();
 
@@ -42,7 +43,7 @@ const ShoppingCart = () => {
   };
 
   return (
-    <>
+    <Box>
       <Button
         as={IconButton}
         ref={btnRef}
@@ -65,51 +66,48 @@ const ShoppingCart = () => {
             {cart.length === 0 ? (
               <Text>Your cart is empty</Text>
             ) : (
-              <>
+              <Box>
                 {cart.map((item) => (
-                  <Box>
-                    <Image objectFit="cover" src={item.image} />
-                    <PriceTag
-                      price={item.price}
-                      currency="USD"
-                    />
+                  <Box key={item._id}>
+                    <Image objectFit="cover" src={item.imageUrl} />
+                    <PriceTag price={item.price} currency="USD" />
                     <Text>{item.quantity}</Text>
-                    <ButtonGroup isAttached variant='outline'>
-                      <IconButton 
-                      onClick={() => dispatch(incrementQuantity(item.id))}
-                      aria-label='Add to cart' 
-                      icon={<AddIcon />} 
+                    <ButtonGroup isAttached variant="outline">
+                      <IconButton
+                        onClick={() => dispatch(decrementQuantity(item._id))}
+                        aria-label="Remove from cart"
+                        icon={<MinusIcon />}
                       />
-                      <IconButton 
-                      onClick={() => dispatch(decrementQuantity(item.id))}
-                      aria-label='Remove from cart' 
-                      icon={<MinusIcon />} 
+                      <IconButton
+                        onClick={() => dispatch(incrementQuantity(item._id))}
+                        aria-label="Add to cart"
+                        icon={<AddIcon />}
                       />
-                      <IconButton 
-                      onClick={() => dispatch(removeFromCart(item.id))}
-                      aria-label='Empty cart' 
-                      icon={<DeleteIcon />} 
+                      <IconButton
+                        onClick={() => dispatch(removeFromCart(item._id))}
+                        aria-label="Empty cart"
+                        icon={<DeleteIcon />}
                       />
                     </ButtonGroup>
                     <Text>${item.quantity * item.price}</Text>
                   </Box>
-                ))}            
-              </>
+                ))}
+              </Box>
             )}
           </DrawerBody>
           <DrawerFooter>
-          <Heading>Total: ${getTotalPrice()}</Heading>
-            <Button 
-            fontSize={["sm", "md", "lg"]}
-            color="black"
-            bgGradient="linear(to-r, rgb(208, 240, 192), rgb(253, 248, 220), rgb(167, 219, 66))"
+            <Heading>Total: ${getTotalPrice()}</Heading>
+            <Button
+              fontSize={["sm", "md", "lg"]}
+              color="black"
+              bgGradient="linear(to-r, rgb(208, 240, 192), rgb(253, 248, 220), rgb(167, 219, 66))"
             >
-            Checkout
+              Checkout
             </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </>
+    </Box>
   );
 };
 
