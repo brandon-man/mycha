@@ -4,7 +4,7 @@ import Logo from "../Logo";
 import HamDrawer from "../HamDrawer";
 import NavItems from "./NavItems";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
-import SearchBar from "../SearchBar";
+import SearchBar from "../Search/SearchBar";
 import Account from "../Account";
 import { useEffect, useState } from "react";
 
@@ -27,7 +27,6 @@ const NavBarContainer = ({ children }) => {
     position: sticky;
     z-index: 10;
     top: 0;
-    backdrop-filter: saturate(180%) blur(20px);
     transition: height 0.5s, line-height 0.5s;
   `;
   return (

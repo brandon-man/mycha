@@ -6,7 +6,6 @@ import { addToCart } from "../../redux/reducers/cart.slice";
 const FeaturedProducts = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
-  console.log(products);
 
   return (
     <Stack

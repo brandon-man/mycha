@@ -14,9 +14,10 @@ import {
 import { MdSearch } from "react-icons/md";
 import { useRef } from "react";
 
-function SearchBar() {
+function SearchInput(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const { searchTerm, handleChange, children } = props;
   return (
     <>
       <Button
@@ -37,10 +38,16 @@ function SearchBar() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerBody>
-            <InputGroup>
+            <InputGroup pr="4.5rem">
               <InputLeftElement pointerEvents="none" children={<MdSearch />} />
-              <Input placeholder="Search..." />
+              <Input
+                value={searchTerm}
+                onChange={handleChange}
+                placeholder="Search..."
+                onKeyUp={handleChange}
+              />
             </InputGroup>
+            {children}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -48,4 +55,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default SearchInput;

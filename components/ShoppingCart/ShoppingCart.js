@@ -29,10 +29,7 @@ import PriceTag from "../Products/PriceTag";
 const ShoppingCart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-  // Extracting cart state from redux store
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
-  // Reference to the dispatch function from redux store
   const dispatch = useDispatch();
 
   const getTotalPrice = () => {
