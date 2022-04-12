@@ -10,7 +10,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 const Shop = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Menu isOpen={isOpen}>
+    <Menu id="menu" isLazy isOpen={isOpen}>
       <MenuButton variant="ghost" onMouseEnter={onOpen} onMouseLeave={onClose}>
         Shop {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </MenuButton>
