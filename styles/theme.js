@@ -1,26 +1,14 @@
 // 1. Import the extendTheme function
 import { extendTheme } from "@chakra-ui/react";
 import { theme as chakraTheme } from "@chakra-ui/react";
-import { createBreakpoints } from "@chakra-ui/theme-tools";
 
-const fonts = {
-  ...chakraTheme.fonts,
-  body: "Raleway",
-  heading: "Asap",
-};
-
-const breakpoints = createBreakpoints({
-  sm: "30em",
-  md: "55em",
-  lg: "84em",
-  xl: "96em",
-  "2xl": "120em",
-});
-
-const overrides = {
-  ...chakraTheme,
-  fonts,
-  breakpoints,
+const customTheme = extendTheme({
+  colors: {},
+  fonts: {
+    ...chakraTheme.fonts,
+    body: "Raleway",
+    heading: "Asap",
+  },
   fontWeights: {
     normal: 300,
     medium: 600,
@@ -38,8 +26,15 @@ const overrides = {
     "5xl": "48px",
     "6xl": "64px",
   },
-};
+  breakpoints: {
+    sm: "30em",
+    md: "55em",
+    lg: "84em",
+    xl: "96em",
+    "2xl": "120em",
+  },
+});
 
-const customTheme = extendTheme(overrides);
+const theme = extendTheme(customTheme);
 
-export default customTheme;
+export default theme;

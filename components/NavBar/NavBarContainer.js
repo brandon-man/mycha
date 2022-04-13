@@ -1,4 +1,11 @@
-import { Flex, Box, Stack, ButtonGroup, Grid } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Stack,
+  ButtonGroup,
+  Grid,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import Logo from "../Logo";
 import HamDrawer from "../HamDrawer";
@@ -10,18 +17,18 @@ import { useEffect, useState } from "react";
 
 const NavBarContainer = ({ children }) => {
   const [navBackground, setNavBackground] = useState(false);
-  const changeBackground = () => {
-    if (window.scrollY >= 80) {
-      setNavBackground(true);
-    } else {
-      setNavBackground(false);
-    }
-  };
+  const [isMobile] = useMediaQuery("(max-width: 770px)");
 
-  // Only fires when the code is running on the browser and avoids errors when doing tests or static site generation with next.js
   useEffect(() => {
+    const changeBackground = () => {
+      if (window.scrollY >= 80) {
+        setNavBackground(true);
+      } else {
+        setNavBackground(false);
+      }
+    };
     window.addEventListener("scroll", changeBackground);
-  });
+  }, []);
 
   const StickNav = styled(Flex)`
     position: sticky;
@@ -64,8 +71,7 @@ const NavBarContainer = ({ children }) => {
             gap={["0", "20", "0", "80"]}
           >
             <Flex align="center" justify="space-between">
-              <HamDrawer />
-              <NavItems />
+              {isMobile ? <HamDrawer /> : <NavItems />}
             </Flex>
             <Logo display={{ base: "block", md: "none", lg: "none" }} />
             <Flex align="center" justify="space-between">

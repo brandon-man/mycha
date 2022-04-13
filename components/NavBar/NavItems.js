@@ -6,10 +6,7 @@ import Shop from "./NavItemShop";
 
 const NavItems = () => {
   return (
-    <Box
-      display={{ base: "none", md: "block", lg: "block" }}
-      flexBasis={{ base: "100%", md: "auto", lg: "auto" }}
-    >
+    <Box flexBasis={{ base: "100%", md: "auto", lg: "auto" }}>
       <Flex
         align="center"
         justify="center"

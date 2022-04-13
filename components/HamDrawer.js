@@ -23,7 +23,6 @@ function HamDrawer() {
   return (
     <>
       <Button
-        display={{ base: "block", md: "none", lg: "none" }}
         as={IconButton}
         ref={btnRef}
         onClick={onOpen}

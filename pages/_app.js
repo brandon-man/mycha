@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Global, css } from "@emotion/react";
 import store from "../redux/store"; //Importing redux store
 
-import customTheme from "../styles/theme";
+import theme from "../styles/theme";
 
 import "@fontsource/raleway";
 import "@fontsource/asap";
@@ -42,7 +42,7 @@ store.dispatch(productsFetch());
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider resetCSS theme={customTheme}>
+    <ChakraProvider resetCSS theme={theme}>
       <Provider store={store}>
         <GlobalStyle>
           <Component {...pageProps} />
