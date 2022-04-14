@@ -27,7 +27,7 @@ const productSlice = createSlice({
   reducers: {},
   // only handle action types
   extraReducers: {
-    [productFetch.pending]: (state, action) => {
+    [productFetch.pending]: (state) => {
       state.status = "pending";
     },
     [productFetch.fulfilled]: (state, action) => {

@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import {
   FormControl,
   FormLabel,
@@ -8,20 +9,38 @@ import {
   Flex,
   Box,
   Heading,
+  Link,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUp = () => {
-  const [input, setInput] = useState({});
+  // const [input, setInput] = useState({});
 
-  const handleInputChange = (e) => {
-    setInput((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  // const handleInputChange = (e) => {
+  //   setInput((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
+  const dispatch = useDispatch();
 
-  const isError = input === "";
+  const { isFetching, isSuccess, isError, errorMessage } = useSelector(
+    (state) => state.user
+  );
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clearState());
+      history.push("/");
+    }
+    if (isError) {
+      console.error(errorMessage);
+      dispatch(clearState());
+    }
+  }, [isSuccess, isError]);
+
+  // const isError = input === "";
 
   return (
     <Flex width="full" align="center" justifyContent="center">
@@ -38,54 +57,6 @@ const SignUp = () => {
         <Box my={4} textAlign="left">
           <form>
             <FormControl isRequired isInvalid={isError}>
-              <FormLabel htmlFor="name">First Name</FormLabel>
-              <Input
-                id="firstName"
-                name="firstName"
-                type="text"
-                placeholder="First Name"
-                value={input.firstName || ""}
-                onChange={handleInputChange}
-              />
-              {!isError ? null : (
-                <FormErrorMessage>A name is required.</FormErrorMessage>
-              )}
-              <FormLabel htmlFor="name">Last Name</FormLabel>
-              <Input
-                id="lastName"
-                name="lastName"
-                type="text"
-                placeholder="Last Name"
-                value={input.lastName || ""}
-                onChange={handleInputChange}
-              />
-              {!isError ? null : (
-                <FormErrorMessage>A name is required.</FormErrorMessage>
-              )}
-              <FormLabel htmlFor="address">Address</FormLabel>
-              <Input
-                id="address"
-                name="address"
-                type="text"
-                placeholder="Address"
-                value={input.address || ""}
-                onChange={handleInputChange}
-              />
-              {!isError ? null : (
-                <FormErrorMessage>An address is required.</FormErrorMessage>
-              )}
-              <FormLabel htmlFor="phone">Phone Number</FormLabel>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="XXX-XXX-XXXX"
-                value={input.phone}
-                onChange={handleInputChange}
-              />
-              {!isError ? null : (
-                <FormErrorMessage>Number is required.</FormErrorMessage>
-              )}
               <FormLabel htmlFor="username">Username</FormLabel>
               <Input
                 id="username"
@@ -135,6 +106,12 @@ const SignUp = () => {
               </Button>
             </FormControl>
           </form>
+          <Box my={4} textAlign="center">
+            Already have an account?{" "}
+            <NextLink href={"/login"} passHref>
+              <Link color="teal.500">Login</Link>
+            </NextLink>
+          </Box>
         </Box>
       </Box>
     </Flex>
