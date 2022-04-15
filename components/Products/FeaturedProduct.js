@@ -2,9 +2,16 @@ import { Heading, Stack, Flex, Image, Grid, Button } from "@chakra-ui/react";
 import PriceTag from "./PriceTag";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/reducers/cart.slice";
+import { useEffect } from "react";
+import { productsFetch } from "../../redux/reducers/products.slice";
 
 const FeaturedProducts = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(productsFetch());
+  }, []);
+
   const { products } = useSelector((state) => state.products);
 
   return (

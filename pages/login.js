@@ -1,9 +1,6 @@
 import NextLink from "next/link";
 import {
   FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Button,
   Flex,
@@ -13,66 +10,59 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-const SignUp = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Login = () => {
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: "",
+  });
 
-  const handleUsernameChange = (e) => {
+  const { username, password } = loginData;
+
+  const handleChange = (e) => {
+    setLoginData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setUsername(e.target.value);
   };
-
-  const handlePasswordChange = (e) => {
-    e.preventDefault();
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(`Username: ${username} & Password: ${password}`);
-  };
-
-  const isErrorUser = username === "";
-  const isErrorPass = password === "";
 
   return (
     <Flex width="full" align="center" justifyContent="center">
-      <Box p={8} width="320px" borderWidth={1} borderRadius={8} boxShadow="lg">
+      <Box
+        p={8}
+        m={10}
+        width="320px"
+        borderWidth={1}
+        borderRadius={8}
+        boxShadow="lg"
+      >
         <Box textAlign="center">
           <Heading>Login</Heading>
         </Box>
         <Box my={4} textAlign="left">
           <form onSubmit={handleSubmit}>
-            <FormControl isRequired isInvalid={isErrorUser}>
-              <FormLabel htmlFor="username">Username</FormLabel>
+            <FormControl isRequired p={2}>
               <Input
                 id="username"
                 name="username"
                 type="text"
+                placeholder="Username"
                 value={username}
-                onChange={handleUsernameChange}
+                onChange={handleChange}
               />
-              {!isErrorUser ? null : (
-                <FormErrorMessage>A username is required.</FormErrorMessage>
-              )}
             </FormControl>
-            <FormControl isRequired isInvalid={isErrorPass}>
-              <FormLabel htmlFor="password">Password</FormLabel>
+            <FormControl isRequired p={2}>
               <Input
                 id="password"
                 name="password"
                 type="password"
-                placeholder="******"
+                placeholder="Password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={handleChange}
               />
-              {!isErrorPass ? (
-                <FormHelperText>
-                  Password must be a mininum of 6 characters.
-                </FormHelperText>
-              ) : (
-                <FormErrorMessage>Password is required.</FormErrorMessage>
-              )}
               <Button
                 type="submit"
                 colorScheme="teal"
@@ -96,4 +86,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

@@ -7,7 +7,6 @@ import theme from "../styles/theme";
 
 import "@fontsource/raleway";
 import "@fontsource/asap";
-import { productsFetch } from "../redux/reducers/products.slice";
 
 const GlobalStyle = ({ children }) => {
   return (
@@ -37,8 +36,6 @@ const GlobalStyle = ({ children }) => {
     </>
   );
 };
-
-store.dispatch(productsFetch());
 
 function MyApp({ Component, pageProps }) {
   return (

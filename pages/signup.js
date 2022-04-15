@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import Router from "next/router";
 import {
   FormControl,
   FormLabel,
@@ -11,41 +12,60 @@ import {
   Heading,
   Link,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { register, reset } from "../redux/reducers/auth.slice";
 
 const SignUp = () => {
-  // const [input, setInput] = useState({});
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
 
-  // const handleInputChange = (e) => {
-  //   setInput((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
+  const { username, password, email } = formData;
+
   const dispatch = useDispatch();
 
-  const { isFetching, isSuccess, isError, errorMessage } = useSelector(
-    (state) => state.user
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
   );
 
   useEffect(() => {
-    if (isSuccess) {
-      dispatch(clearState());
-      history.push("/");
-    }
     if (isError) {
-      console.error(errorMessage);
-      dispatch(clearState());
+      console.error(message);
     }
-  }, [isSuccess, isError]);
+    if (isSuccess || user) {
+      Router.push("/");
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, dispatch]);
 
-  // const isError = input === "";
+  const handleChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      username,
+      password,
+      email,
+    };
+    console.log(userData);
+    dispatch(register(userData));
+  };
+
+  const isFormError = formData === "";
 
   return (
     <Flex width="full" align="center" justifyContent="center">
       <Box
         p={8}
+        m={10}
         maxWidth="500px"
         borderWidth={1}
         borderRadius={8}
@@ -55,17 +75,17 @@ const SignUp = () => {
           <Heading>Sign Up</Heading>
         </Box>
         <Box my={4} textAlign="left">
-          <form>
-            <FormControl isRequired isInvalid={isError}>
+          <form onSubmit={handleSubmit}>
+            <FormControl isRequired isInvalid={isFormError}>
               <FormLabel htmlFor="username">Username</FormLabel>
               <Input
                 id="username"
                 name="username"
                 type="text"
-                value={input.username || ""}
-                onChange={handleInputChange}
+                value={username}
+                onChange={handleChange}
               />
-              {!isError ? null : (
+              {!isFormError ? null : (
                 <FormErrorMessage>A username is required.</FormErrorMessage>
               )}
               <FormLabel htmlFor="password">Password</FormLabel>
@@ -74,10 +94,10 @@ const SignUp = () => {
                 name="password"
                 type="password"
                 placeholder="******"
-                value={input.password || ""}
-                onChange={handleInputChange}
+                value={password}
+                onChange={handleChange}
               />
-              {!isError ? (
+              {!isFormError ? (
                 <FormHelperText>
                   Password must be a mininum of 6 characters.
                 </FormHelperText>
@@ -89,13 +109,14 @@ const SignUp = () => {
                 id="email"
                 name="email"
                 type="email"
-                value={input.email || ""}
-                onChange={handleInputChange}
+                value={email}
+                onChange={handleChange}
               />
-              {!isError ? null : (
+              {!isFormError ? null : (
                 <FormErrorMessage>Email is required.</FormErrorMessage>
               )}
               <Button
+                isLoading={isLoading}
                 type="submit"
                 colorScheme="teal"
                 variant="outline"

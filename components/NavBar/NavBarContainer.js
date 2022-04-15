@@ -82,8 +82,8 @@ const NavBarContainer = ({ children }) => {
                 gap={["0", "2", "1"]}
               >
                 <SearchBar />
-                <Account />
                 <ShoppingCart />
+                <Account />
               </ButtonGroup>
             </Flex>
           </Grid>
