@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import {
   FormControl,
   FormLabel,
@@ -17,6 +17,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../redux/reducers/auth.slice";
 
 const SignUp = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -36,7 +38,7 @@ const SignUp = () => {
       console.error(message);
     }
     if (isSuccess || user) {
-      Router.push("/");
+      router.push("/");
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
@@ -55,7 +57,6 @@ const SignUp = () => {
       password,
       email,
     };
-    console.log(userData);
     dispatch(register(userData));
   };
 
