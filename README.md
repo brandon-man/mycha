@@ -2,6 +2,8 @@
 
 An e-commerce site with shopping cart, authentication and search functionalities. 
 
+## Features
+
 #### Shopping Cart 
 - Increment, decrement, and clear items functionality
 - If cart is empty, new items will be pushed onto cart
