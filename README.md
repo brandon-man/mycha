@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## my cha
 
-## Getting Started
+An e-commerce site with shopping cart, authentication and search functionalities. 
 
-First, run the development server:
+#### Shopping Cart 
+- Increment, decrement, and clear items functionality
+- If cart is empty, new items will be pushed onto cart
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+#### Authentication
+- Passwords are hashed and salted
+- Logged in and signed in state
+- Backend is updated when user creates an account
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Search Bar
+- Can search for products
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Tech stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### Frontend
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [Next.js](https://nextjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Chakra-UI](https://chakra-ui.com/)
 
-## Learn More
+#### Backend
 
-To learn more about Next.js, take a look at the following resources:
+- [Express](https://firebase.google.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/docs/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Future implementations
+- Protected routes against injection attacks
+- Debouncing for search bar to limit API requests
+- Cart can be implemented on backend to update data when users checks out 
